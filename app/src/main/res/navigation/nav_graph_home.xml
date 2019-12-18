@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/user">
+
+    <fragment
+        android:id="@+id/user"
+        android:name="com.example.mukesh.view.ui.home.HomeFragment"
+        android:label="@string/users">
+        <action
+            android:id="@+id/action_user_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.example.mukesh.view.ui.home.UserDetailsFragment"
+        android:label="@string/details" >
+        <argument
+            android:name="user"
+            app:argType="com.example.mukesh.model.User" />
+        <argument
+            android:name="transitionArgument"
+            app:argType="com.example.mukesh.view.ui.home.model.SharedTransitionArg" />
+
+    </fragment>
+
+</navigation>

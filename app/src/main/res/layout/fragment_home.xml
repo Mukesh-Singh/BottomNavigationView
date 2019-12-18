@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--<data>
+        <variable
+            name="data"
+            type="com.example.mukesh.model.User" />
+    </data>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/layout_toolbar"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:listitem="@layout/row_user"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+       <!-- <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <RelativeLayout
+                android:id="@+id/row_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="10dp"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/profile_pic"
+                    android:transitionName="profile_image_transition"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat="@mipmap/ic_launcher" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/profile_pic"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:transitionName="name_transition"
+                        style="@android:style/TextAppearance.Material.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:tex="User name"
+                        android:text="@{data.name.first+` `+data.name.last}"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceSubtitle1"
+                        android:text="@{String.format(@string/age, data.age)}"
+                        tools:tex="Age" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceSubtitle1"
+                        android:text="@{String.format(@string/email, data.email)}"
+                        tools:tex="Email" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceSubtitle1"
+                        android:text="@{String.format(@string/phone, data.phone)}"
+                        tools:tex="Phone" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

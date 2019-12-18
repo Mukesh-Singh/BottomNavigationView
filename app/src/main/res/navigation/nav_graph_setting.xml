@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_setting"
+    app:startDestination="@id/setting">
+
+    <fragment
+        android:id="@+id/setting"
+        android:name="com.example.mukesh.view.ui.settings.SettingFragment"
+        android:label="@string/settings">
+        <action
+            android:id="@+id/setting_next"
+            app:destination="@id/setting_2"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/setting_2"
+        android:name="com.example.mukesh.view.ui.settings.SettingFragment2"
+        android:label="Setting-2" >
+
+    </fragment>
+
+</navigation>

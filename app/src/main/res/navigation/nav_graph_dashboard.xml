@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_dashboard"
+    app:startDestination="@id/dashboard">
+
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.example.mukesh.view.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard">
+
+        <action
+            android:id="@+id/action_dashboard_to_dashboardItemDetails"
+            app:destination="@id/dashboardItemDetails"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardItemDetails"
+        android:name="com.example.mukesh.view.ui.dashboard.DashboardItemDetails"
+        android:label="{title}"
+        tools:layout="@layout/fragment_dashboard_item_detils">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_dashboardItemDetails_to_dashboardMoreDetails"
+            app:destination="@id/dashboardMoreDetails"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardMoreDetails"
+        android:name="com.example.mukesh.view.ui.dashboard.DashboardMoreDetails"
+        android:label="MoreDetails" />
+
+
+</navigation>

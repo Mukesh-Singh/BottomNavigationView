@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.mukesh.model.User" />
+
+    </data>
+    <RelativeLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/row_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_centerHorizontal="true"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="4dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:src="@color/colorAccent"
+                android:id="@+id/profile_pic"
+                android:layout_width="160dp"
+                android:layout_height="120dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_horizontal"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:padding="8dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    style="?textAppearanceHeadline6"
+                    tools:text="Robbert Altorn"
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{data.name.first+` `+data.name.last}"/>
+
+                <TextView
+                    tools:text="Robbert Altorn"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{data.email}"/>
+
+                <TextView
+                    style="?textAppearanceCaption"
+                    android:text="@{data.phone}"
+                    tools:text="Pink Floyd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+    <!--<androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:id="@+id/row_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="10dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/profile_pic"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@android:style/TextAppearance.Material.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:tex="User name"
+                    android:text="@{data.name.first+` `+data.name.last}"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:text="@{String.format(@string/age, data.age)}"
+                    tools:tex="Age" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:text="@{String.format(@string/email, data.email)}"
+                    tools:tex="Email" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:text="@{String.format(@string/phone, data.phone)}"
+                    tools:tex="Phone" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>-->
+
+</layout>
