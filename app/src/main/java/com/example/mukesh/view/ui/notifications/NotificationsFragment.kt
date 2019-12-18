@@ -1,5 +1,6 @@
 package com.example.mukesh.view.ui.notifications
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -38,25 +39,35 @@ class NotificationsFragment : Fragment() {
             textView.text=sring
         })
         val change_mode:Button=root.findViewById(R.id.change_mode)
-        val mode=AppCompatDelegate.getDefaultNightMode()
-        if (mode==AppCompatDelegate.MODE_NIGHT_NO || mode==AppCompatDelegate.MODE_NIGHT_UNSPECIFIED){
-            change_mode.text="Switch to dark mode"
-        }
-        else{
-            change_mode.text="Switch to light mode"
-        }
+        val mode1=AppCompatDelegate.getDefaultNightMode()
+//        if (mode==AppCompatDelegate.MODE_NIGHT_NO || mode==AppCompatDelegate.MODE_NIGHT_UNSPECIFIED){
+//            change_mode.text="Switch to dark mode"
+//        }
+//        else{
+//            change_mode.text="Switch to light mode"
+//        }
+        change_mode.text="Switch Dark Mode"
 
-        Log.i("NotificationsFragment","Current mode-: $mode")
+        Log.i("NotificationsFragment","Current mode-: $mode1")
 
-        change_mode.setOnClickListener({
-
-            if (mode==AppCompatDelegate.MODE_NIGHT_NO){
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        change_mode.setOnClickListener {
+            val mode=AppCompatDelegate.getDefaultNightMode()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                if (mode==AppCompatDelegate.MODE_NIGHT_NO || mode==AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                } else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                }
             }
             else{
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                if (mode==AppCompatDelegate.MODE_NIGHT_NO){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                } else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                }
             }
-        })
+
+        }
 
         return root
     }

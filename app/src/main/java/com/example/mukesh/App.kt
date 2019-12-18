@@ -1,6 +1,7 @@
 package com.example.mukesh
 
 import android.app.Application
+import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 
 /**
@@ -10,6 +11,10 @@ class App:Application() {
 
     override fun onCreate() {
         super.onCreate()
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        val mode=AppCompatDelegate.getDefaultNightMode()
+        Log.i("App","Current mode-: $mode")
+        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+
     }
 }
