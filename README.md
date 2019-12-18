@@ -1,0 +1,1 @@
+# BottomNavigationView is a sample project to demonstrate how to use Bottom Navigation View and Youtube like tab transaction. Project is using latest Architecure component `Navigation` from `Jetpack`.
