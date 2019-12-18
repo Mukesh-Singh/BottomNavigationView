@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1F1F1F</color>
+    <color name="colorPrimaryDark">#070111</color>
+    <color name="primaryLigth">#cac7ce</color>
+    <color name="colorAccent">#26A69A</color>
+    <color name="windowBackgroundColorPrimary">#000000</color>
+    <color name="windowBackgroundColorSecondary">#1F1F1F</color>
+    <color name="titleBlack">#fafafa</color>
+
+    <color name="gray">#ece9f0</color>
+    <color name="blue">#039BE5</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#F44336</color>
+
+    <color name="bottom_item_checked_color">#fafafa</color>
+    <color name="bottom_item_unchecked_color">#79787b</color>
+    <color name="button_text_color">#ffffff</color>
+</resources>

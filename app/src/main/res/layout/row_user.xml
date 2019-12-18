@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         >
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/row_parent"
         android:clickable="true"
         android:focusable="true"
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
     <!--<androidx.cardview.widget.CardView

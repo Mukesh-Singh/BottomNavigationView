@@ -1,15 +1,20 @@
 package com.example.mukesh.view.ui.notifications
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mukesh.R
 import com.example.mukesh.view.ui.main.MainSharedViewModel
+import kotlinx.android.synthetic.main.fragment_notifications.*
 
 class NotificationsFragment : Fragment() {
 
@@ -31,6 +36,26 @@ class NotificationsFragment : Fragment() {
         val textView: TextView = root.findViewById(R.id.text_notifications)
         mainSharedViewModel.getDashboardTestSharedString().observe(this, Observer { sring ->
             textView.text=sring
+        })
+        val change_mode:Button=root.findViewById(R.id.change_mode)
+        val mode=AppCompatDelegate.getDefaultNightMode()
+        if (mode==AppCompatDelegate.MODE_NIGHT_NO || mode==AppCompatDelegate.MODE_NIGHT_UNSPECIFIED){
+            change_mode.text="Switch to dark mode"
+        }
+        else{
+            change_mode.text="Switch to light mode"
+        }
+
+        Log.i("NotificationsFragment","Current mode-: $mode")
+
+        change_mode.setOnClickListener({
+
+            if (mode==AppCompatDelegate.MODE_NIGHT_NO){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+            else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
         })
 
         return root
