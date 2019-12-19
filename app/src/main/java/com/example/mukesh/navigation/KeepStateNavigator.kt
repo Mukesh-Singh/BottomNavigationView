@@ -15,21 +15,32 @@ class KeepStateNavigator(
     private val manager: FragmentManager, // Should pass childFragmentManager.
     private val containerId: Int
 ) : FragmentNavigator(context, manager, containerId) {
-    var lastDestination:Destination?=null
-    var currentDestination:Destination?=null
+    //var lastDestination:Destination?=null
+    //var currentDestination:Destination?=null
+    var lastDestinationClassName:String?=null
+    var currentDestinationClassName:String?=null
     override fun navigate(
         destination: Destination,
         args: Bundle?,
         navOptions: NavOptions?,
         navigatorExtras: Navigator.Extras?
     ): NavDestination? {
-        if (lastDestination!=null){
-            lastDestination=currentDestination
+//        if (lastDestination!=null){
+//            lastDestination=currentDestination
+//        }
+//        else{
+//            lastDestination=destination
+//        }
+//        currentDestination=destination
+
+        if (lastDestinationClassName!=null){
+            lastDestinationClassName=currentDestinationClassName
         }
         else{
-            lastDestination=destination
+            lastDestinationClassName=destination.className
         }
-        currentDestination=destination
+        currentDestinationClassName=destination.className
+
         val tag = destination.id.toString()
         val transaction = manager.beginTransaction()
         var initialNavigate = false
@@ -58,5 +69,20 @@ class KeepStateNavigator(
         } else {
             null
         }
+    }
+
+    override fun onSaveState(): Bundle? {
+        val bundle=Bundle()
+        bundle.putString("last_destination",lastDestinationClassName)
+        bundle.putString("current_destination",currentDestinationClassName)
+        return bundle
+    }
+
+    override fun onRestoreState(savedState: Bundle?) {
+        if (savedState!=null){
+            lastDestinationClassName=savedState.getString("last_destination")
+            currentDestinationClassName=savedState.getString("current_destination")
+        }
+        super.onRestoreState(savedState)
     }
 }

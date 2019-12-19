@@ -13,8 +13,12 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.mukesh.R
+import com.example.mukesh.navigation.KeepStateNavigator
 import com.example.mukesh.view.ui.main.MainSharedViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_notifications.*
 
 class NotificationsFragment : Fragment() {
@@ -46,7 +50,7 @@ class NotificationsFragment : Fragment() {
 //        else{
 //            change_mode.text="Switch to light mode"
 //        }
-        change_mode.text="Switch Dark Mode"
+        change_mode.text=getString(R.string.switch_dark_mode)
 
         Log.i("NotificationsFragment","Current mode-: $mode1")
 
@@ -67,6 +71,11 @@ class NotificationsFragment : Fragment() {
                 }
             }
 
+        }
+
+        root?.findViewById<Button>(R.id.go_to_home)?.setOnClickListener {
+           //requireActivity().findNavController(R.id.nav_host_fragment).navigate(R.id.navigation_home)
+            requireActivity().findViewById<BottomNavigationView>(R.id.nav_view).setSelectedItemId(R.id.navigation_home);
         }
 
         return root

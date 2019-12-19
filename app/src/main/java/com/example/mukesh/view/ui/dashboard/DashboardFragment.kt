@@ -55,7 +55,7 @@ class DashboardFragment : Fragment() {
         val layoutManager = GridLayoutManager(context, 2)
         binding.list.layoutManager = layoutManager
         binding.list.adapter = dashboardAdapter
-        dashboardAdapter.updateList(DashboardDataProvider.getDashBoardData())
+        dashboardAdapter.updateList(DashboardDataProvider.getDashBoardData(requireContext()))
         mainSharedViewModel.getDashboardTestSharedString().observe(this, Observer { sring ->
             binding.textView.text=sring
         })

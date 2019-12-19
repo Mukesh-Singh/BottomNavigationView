@@ -9,6 +9,7 @@ import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -17,6 +18,7 @@ import com.example.mukesh.databinding.FragmentContainerDashboardBinding
 import com.example.mukesh.databinding.FragmentContainerSettingBinding
 import com.example.mukesh.navigation.KeepStateNavigator
 import com.example.mukesh.view.ui.settings.SettingFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /**
  * Created by Mukesh Singh on 12/10/2019
@@ -57,14 +59,30 @@ class SettingContainerFragment : Fragment() {
     }
 
     private fun navigateUp(){
-        var nagi= findNavController().navigatorProvider.getNavigator<KeepStateNavigator>("keep_state_fragment")  as KeepStateNavigator
-        if (nagi.currentDestination==nagi.lastDestination){
-            findNavController().navigate(R.id.navigation_home)
+        val nagi= findNavController().navigatorProvider.getNavigator<KeepStateNavigator>("keep_state_fragment")  as KeepStateNavigator
+        if (nagi.currentDestinationClassName==nagi.lastDestinationClassName){
+            requireActivity().findViewById<BottomNavigationView>(R.id.nav_view).setSelectedItemId(R.id.navigation_home)
             return
         }
-        findNavController().navigate(nagi.lastDestination?.id!!)
+        requireActivity().findViewById<BottomNavigationView>(R.id.nav_view).setSelectedItemId(getLastDestinationMenuId(nagi.lastDestinationClassName))
+        //findNavController().navigate(nagi.lastDestination?.id!!)
 
 
+    }
+
+    private fun getLastDestinationMenuId(destinationClassName: String?):Int{
+        if (destinationClassName==null)
+            return R.id.navigation_home
+        return when (destinationClassName){
+            HomeContainerFragment::class.java.name->
+                R.id.navigation_home
+            DashboardContainerFragment::class.java.name->
+                R.id.navigation_dashboard
+            NotificationContainerFragment::class.java.name->
+                R.id.navigation_notifications
+            else->
+                R.id.navigation_home
+        }
     }
 
 }
